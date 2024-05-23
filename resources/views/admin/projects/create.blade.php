@@ -24,6 +24,21 @@
             </div>
 
             <div class="mb-3">
+                <label for="type_id" class="form-label">City</label>
+                <select
+                    class="form-select form-select"
+                    name="type_id"
+                    id="type_id"
+                >
+                    <option selected>Select a type</option>
+                    <option value="">New Delhi</option>
+                    <option value="">Istanbul</option>
+                    <option value="">Jakarta</option>
+                </select>
+            </div>
+            
+
+            <div class="mb-3">
                 <label class="form-label text-light fw-light" for="project_start_date">Project Start Date</label>
                 <input type="text" class="form-control" name="project_start_date" id="project_start_date"
                     aria-describedby="project_start_dateHelp" placeholder="Type here the Project Start Date"

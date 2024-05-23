@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->foreignId('type_id')->constrained()->onDelete('set null');
+            $table->unsignedBigInteger('type_id')->after('description');
+
+            $table->foreign('type_id')
+            ->references('id')
+            ->on('types')
+            ->onDelete('set null');
         });
     }
 
