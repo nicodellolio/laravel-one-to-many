@@ -1,0 +1,17 @@
+@import '~bootstrap/scss/bootstrap';
+
+*{
+    font-family: "Lato", sans-serif;
+}
+
+body{
+    background-color: #5d2b4c;
+}
+.p-bg-light{
+    background-color: #96457b;
+}
+._create-title{
+    font-size: 3.5rem;
+}._edit-title{
+    font-size: 2.5rem;
+}
