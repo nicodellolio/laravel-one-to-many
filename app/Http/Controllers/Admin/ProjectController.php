@@ -61,10 +61,10 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Project $project)
+    public function edit(Project $project, Type $type)
     {
         $types = Type::all();
-        return view('admin.projects.edit', compact('projects','types'));
+        return view('admin.projects.edit', compact('project','type'));
     }
 
     /**
