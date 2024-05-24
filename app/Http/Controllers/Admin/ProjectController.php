@@ -38,7 +38,9 @@ class ProjectController extends Controller
     {
         $validated = $request->validated();
 
-        $slug = Str::slug($request->name, '-');
+        $slug = Str::slug($request['name']);
+
+        dd($slug);
         
         $validated['slug'] = $slug;
         

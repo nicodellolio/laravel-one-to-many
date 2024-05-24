@@ -4,6 +4,8 @@
     <div class="container">
 
         <div class="table-responsive ">
+            @include('partials.session-messages')
+
             <table class="table table-light table-hover mt-5">
                 <thead class="">
                     <tr class="fw-bolder fs-5 table-secondary">
