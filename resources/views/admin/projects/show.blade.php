@@ -23,7 +23,7 @@
                             {{ $project->description }}
                         </p>
                         <div class="type">
-                            Type: {{$project->type_id}}
+                            Type: {{$project->type->name}}
                         </div>
                         <div class="project-date">
                             <div class="projectStart">

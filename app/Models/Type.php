@@ -19,3 +19,4 @@ class Type extends Model
     }
 }
 
+
