@@ -23,7 +23,9 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             'title' => 'required|min:3|max:150',
+            'slug'=> 'min:3|max:150',
             'description' => 'nullable',
+            'type_id' => 'nullable|exists:types,id',
             'project_start_date' => 'nullable|date ',
             'project_end_date' => 'nullable|date',
             'link_to_source_code' => 'required|starts_with:http',

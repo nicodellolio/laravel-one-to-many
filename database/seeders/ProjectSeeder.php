@@ -6,6 +6,7 @@ use App\Models\Project;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
+use Illuminate\Support\Str;
 
 class ProjectSeeder extends Seeder
 {
@@ -19,7 +20,9 @@ class ProjectSeeder extends Seeder
             $project = new Project();
             
             $project->title = $faker->streetName();
+            $project->slug = Str::slug($project->title);
             $project->description = $faker->sentence(15);
+            $project->type_id = (1);
             $project->project_start_date = $faker->date();
             $project->project_end_date = $faker->date();
             $project->link_to_source_code = $faker->url();

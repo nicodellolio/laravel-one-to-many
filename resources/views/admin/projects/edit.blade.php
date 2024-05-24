@@ -23,6 +23,8 @@
             @csrf
             @method('PUT')
 
+            @include('partials.validation-messages')
+
             <div class="mb-3">
                 <label class="text-light fw-light" for="title" class="form">Title</label>
                 <input type="text" class="form-control" name="title" id="title" aria-describedby="titleHelp"
@@ -34,6 +36,18 @@
                 <textarea type="text" class="form-control" rows="4" name="description" id="description"
                     aria-describedby="DescriptionHelp"
                     placeholder="ex. The project collects the entire source code for the creation of a web app of a real post office...">{{ old('description', $project->description) }}</textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label text-light fw-light" for="type_id">Project Type</label>
+                <select class="form-select form-select" name="type_id" id="type_id">
+                    <option selected>Select a type</option>
+
+                    @foreach ($types as $type)
+                        <option value="{{$type->id}}" {{$type->id == old('type_id', $post->type_id) ? 'selected' : ''  }}>{{$type->name}}</option>
+                    @endforeach
+
+                </select>
             </div>
 
             <div class="mb-3">

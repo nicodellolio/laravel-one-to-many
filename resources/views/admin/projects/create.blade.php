@@ -9,6 +9,7 @@
 
         <form action="{{ route('admin.projects.store') }}" method="post" enctype="multipart/form-data">
             @csrf
+            @include('partials.validation-messages')
 
             <div class="mb-3">
                 <label class="form-label text-light fw-light" for="title">Title</label>
