@@ -100,6 +100,10 @@
 
                 </tbody>
             </table>
+
+            <div class="paginator" style="--bs-pagination-active-bg: #8940ad;">
+                {!! $projects->links() !!}
+            </div>
         </div>
 
 
