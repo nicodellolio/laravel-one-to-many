@@ -20,7 +20,7 @@ class ProjectSeeder extends Seeder
             $project = new Project();
             
             $project->title = $faker->streetName();
-            $project->slug = Str::slug($project->title);
+            $project->slug = Str::slug($project->title, '-');
             $project->description = $faker->sentence(15);
             $project->type_id = (1);
             $project->project_start_date = $faker->date();

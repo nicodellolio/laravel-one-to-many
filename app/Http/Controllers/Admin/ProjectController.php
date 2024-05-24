@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -37,6 +38,10 @@ class ProjectController extends Controller
     {
         $validated = $request->validated();
 
+        $slug = Str::slug($request->name, '-');
+        
+        $validated['slug'] = $slug;
+        
         if ($request->has('preview_image')) {
 
             $img_path = Storage::put('uploads', $validated['preview_image']);
@@ -64,7 +69,7 @@ class ProjectController extends Controller
     public function edit(Project $project, Type $type)
     {
         $types = Type::all();
-        return view('admin.projects.edit', compact('project','type'));
+        return view('admin.projects.edit', compact('project','types'));
     }
 
     /**
@@ -99,6 +104,6 @@ class ProjectController extends Controller
     {
         $project->delete();
 
-        return to_route('admin.projects.index');
+        return to_route('admin.projects.index')->with('message', "Post $project->title deleted successfully");
     }
 }
