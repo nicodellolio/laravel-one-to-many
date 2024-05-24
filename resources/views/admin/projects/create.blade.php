@@ -3,7 +3,7 @@
 @section('content')
     <div class="container edit-form">
 
-        <h1 class="mt-5 mb-3 _create-title fw-bolder text-warning">
+        <h1 class="display-2 mt-5 mb-3 _create-title fw-bolder text-warning">
             Add a new project
         </h1>
 

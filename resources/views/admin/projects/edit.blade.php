@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container edit-form">
+    <div class="container w-75 pb-5 edit-form">
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -13,7 +13,7 @@
             </div>
         @endif
 
-        <div class="mt-5 mb-3 _edit-title fw-bolder text-info">
+        <div class="display-6 mt-5 mb-3 _edit-title fw-bolder text-info">
             <span>Make adjustments to your</span>
             <span class="text-warning">{{ $project->title }}</span>
             <span>project</span>
@@ -44,7 +44,9 @@
                     <option selected>Select a type</option>
 
                     @foreach ($types as $type)
-                        <option value="{{$type->id}}" {{$type->id == old('type_id', $project->type_id) ? 'selected' : ''  }}>{{$type->name}}</option>
+                        <option value="{{ $type->id }}"
+                            {{ $type->id == old('type_id', $project->type_id) ? 'selected' : '' }}>{{ $type->name }}
+                        </option>
                     @endforeach
 
                 </select>
@@ -64,37 +66,44 @@
                     value="{{ old('project_end_date', $project->project_end_date) }}">
             </div>
 
-            <div class="mb-3">
-                <label class="text-light fw-light" for="link_to_source_code" class="form">Link to the Source Code</label>
-                <input type="text" class="form-control" name="link_to_source_code" id="link_to_source_code"
-                    aria-describedby="link_to_source_codeHelp" placeholder="Type here the project Link to the Source Code"
-                    value="{{ old('link_to_source_code', $project->link_to_source_code) }}">
-            </div>
 
-            <div class="mb-3">
-                <label class="text-light fw-light" for="link_to_project_view" class="form">Link to the Project
-                    View</label>
-                <input type="text" class="form-control" name="link_to_project_view" id="link_to_project_view"
-                    aria-describedby="link_to_project_viewHelp" placeholder="Type here the Link to the Project View"
-                    value="{{ old('link_to_project_view', $project->link_to_project_view) }}">
-            </div>
+            <div class="image_box d-flex justify-content-between mb-4">
 
-            <div class="image_box d-flex justify-content-between">
+                <div class="left-side w-75">
 
-                <div class="mb-3 w-50">
-                    <label for="preview_image" class="form-label text-light fw-light">Update your preview image</label>
-                    <input type="file" class="form-control" @error('cover_image') is-invalid @enderror name="preview_image" id="preview_image" placeholder=""
-                        aria-describedby="fileHelpId" value="{{ old('preview_image', $project->preview_image) }}" />
+                    <div class="mb-3">
+                        <label class="text-light fw-light" for="link_to_source_code" class="form">Link to the Source
+                            Code</label>
+                        <input type="text" class="form-control" name="link_to_source_code" id="link_to_source_code"
+                            aria-describedby="link_to_source_codeHelp"
+                            placeholder="Type here the project Link to the Source Code"
+                            value="{{ old('link_to_source_code', $project->link_to_source_code) }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="text-light fw-light" for="link_to_project_view" class="form">Link to the Project
+                            View</label>
+                        <input type="text" class="form-control" name="link_to_project_view" id="link_to_project_view"
+                            aria-describedby="link_to_project_viewHelp" placeholder="Type here the Link to the Project View"
+                            value="{{ old('link_to_project_view', $project->link_to_project_view) }}">
+                    </div>
+
+                    <div class="mb-3 ">
+                        <label for="preview_image" class="form-label text-light fw-light">Update your preview image</label>
+                        <input type="file" class="form-control" @error('cover_image') is-invalid @enderror
+                            name="preview_image" id="preview_image" placeholder="" aria-describedby="fileHelpId"
+                            value="{{ old('preview_image', $project->preview_image) }}" />
+                    </div>
                 </div>
 
-                <div class="img w-50 d-flex flex-column align-items-end">
-                    <img width="90%" class="" src="{{ asset('storage/' . $project->preview_image) }}"
+                <div class="img d-flex w-25 flex-column align-items-end">
+                    <img class="img-fluid" src="{{ asset('storage/' . $project->preview_image) }}"
                         alt="">
-                @if ($project->preview_image)
-                    <small class="text-light fs-6">Current project preview image</small>
-                @else
-                    <small class="text-light fs-6">No current image to show</small>
-                @endif
+                    @if ($project->preview_image)
+                        <small class="text-light fs-6">Current project preview image</small>
+                    @else
+                        <small class="text-light fs-6">No current image to show</small>
+                    @endif
                 </div>
 
             </div>

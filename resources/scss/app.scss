@@ -10,11 +10,6 @@ body{
 .p-bg-light{
     background-color: #96457b;
 }
-._create-title{
-    font-size: 3.5rem;
-}._edit-title{
-    font-size: 2.5rem;
-}
 
 .paginator{
     .page-link{
@@ -25,4 +20,7 @@ body{
         border-color: #4a225e;
         color: #fff;
     }
+}
+.image_box{
+    gap: 2rem;
 }
