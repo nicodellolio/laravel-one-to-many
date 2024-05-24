@@ -22,6 +22,9 @@
                         <p class="card-text">
                             {{ $project->description }}
                         </p>
+                        <div class="type">
+                            Type: {{$project->type_id}}
+                        </div>
                         <div class="project-date">
                             <div class="projectStart">
                                Start Date: {{ $project->project_start_date }}

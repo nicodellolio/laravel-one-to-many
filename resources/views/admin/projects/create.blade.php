@@ -24,19 +24,17 @@
             </div>
 
             <div class="mb-3">
-                <label for="type_id" class="form-label">City</label>
-                <select
-                    class="form-select form-select"
-                    name="type_id"
-                    id="type_id"
-                >
+                <label class="form-label text-light fw-light" for="type_id">Project Type</label>
+                <select class="form-select form-select" name="type_id" id="type_id">
                     <option selected>Select a type</option>
-                    <option value="">New Delhi</option>
-                    <option value="">Istanbul</option>
-                    <option value="">Jakarta</option>
+
+                    @foreach ($types as $type)
+                        <option value="{{$type->id}}">{{$type->name}}</option>
+                    @endforeach
+
                 </select>
             </div>
-            
+
 
             <div class="mb-3">
                 <label class="form-label text-light fw-light" for="project_start_date">Project Start Date</label>
@@ -70,7 +68,7 @@
             <div class="mb-3">
                 <label for="preview_image" class="form-label text-light fw-light">Choose an image</label>
                 <input type="file" class="form-control" name="preview_image" id="preview_image" placeholder=""
-                    aria-describedby="fileHelpId"/>
+                    aria-describedby="fileHelpId" />
             </div>
 
 

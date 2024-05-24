@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
@@ -25,7 +26,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $types = Type::all();
+        return view('admin.projects.create', compact('types'));
     }
 
     /**
@@ -43,15 +45,17 @@ class ProjectController extends Controller
 
 
         Project::create($validated);
-        return to_route('admin.projects.index');
+        return to_route('admin.projects.index')->with('message', 'Post created successfully');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Project $project)
+    public function show(Project $project, Type $type)
     {
-        return view('admin.projects.show', compact('project'));
+        $types = Type::all();
+
+        return view('admin.projects.show', compact('project', 'type'));
     }
 
     /**
@@ -59,7 +63,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::all();
+        return view('admin.projects.edit', compact('projects','types'));
     }
 
     /**
@@ -84,7 +89,7 @@ class ProjectController extends Controller
 
 
         $project->update($validated);
-        return to_route('admin.projects.show', compact('project'));
+        return to_route('admin.projects.show', compact('project'))->with('message', 'Post modified successfully');
     }
 
     /**
