@@ -5,10 +5,16 @@
 }
 
 body{
-    background-color: #5d2b4c;
+    background-color: #590b4c;
+}
+.p-bg-lighter{
+    background-color: #b749a5;
 }
 .p-bg-light{
-    background-color: #96457b;
+    background-color: #99057b;
+}
+.p-bg-darker{
+    background-color: #590441;
 }
 
 .paginator{
@@ -23,4 +29,18 @@ body{
 }
 .image_box{
     gap: 2rem;
+}
+img.jumbo-img{
+    position: absolute;
+    right: 15%;
+    bottom: 28%;
+    width: 40%;
+    min-width: 400px;
+    max-width: 550px;
+}
+.jumbotron{
+    height: 670px;
+    h1{
+        font-size: 6rem;
+    }
 }
