@@ -33,13 +33,13 @@ body{
 img.jumbo-img{
     position: absolute;
     right: 15%;
-    bottom: 28%;
+    bottom: 20%;
     width: 40%;
     min-width: 400px;
     max-width: 550px;
 }
 .jumbotron{
-    height: 670px;
+    min-height: 645px;
     h1{
         font-size: 6rem;
     }
